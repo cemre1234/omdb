@@ -1,3 +1,9 @@
+# Omdb movie listing
+
+In this project, heraku is used to avoid cors error.
+You will get an error without activating it.
+Therefore, first click on the link https://cors-anywhere.herokuapp.com and take the necessary actions.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
