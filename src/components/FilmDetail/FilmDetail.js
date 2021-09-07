@@ -27,7 +27,7 @@ function FilmDetail() {
               ? filmDetail.poster
               : "https://via.placeholder.com/300x425"
           }
-          alt={filmDetail?.title}
+          alt={filmDetail.title}
         />
       </figure>
       <div className="filmdetail-letter">
