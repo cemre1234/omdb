@@ -31,8 +31,8 @@ function FilmDetail() {
         />
       </figure>
       <div className="filmdetail-letter">
-        <h1>{filmDetail?.title}</h1>
-        <h3>{filmDetail?.year}</h3>
+        <h1>{filmDetail.title}</h1>
+        <h3>{filmDetail.year}</h3>
         <h4>{filmDetail.runtime}</h4>
         <p>{filmDetail.director}</p>
         <p>{filmDetail.actors}</p>
