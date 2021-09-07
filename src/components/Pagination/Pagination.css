@@ -1,0 +1,29 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin: 4.4rem 10%;
+  flex-wrap: wrap;
+}
+
+.pagination button.pagination-active{
+  background: #333;
+  float: left;
+  text-decoration: none;
+  color: #fff;
+}
+
+.pagination button.pagination-passive {
+  color: #333;
+  float: left;
+  text-decoration: none;
+}
+
+.pagination button {
+  font-size: 16px;
+  padding: 4px 8px;
+  font-weight: 600;
+  border: 0px none;
+  background: #CCC;
+  margin-right: 5px;
+  margin-bottom: 5px;
+}

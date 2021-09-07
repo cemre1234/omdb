@@ -1,0 +1,27 @@
+.filmdetail {
+  display: flex;
+  margin: 4.4rem 10%;
+  flex-direction: row;
+}
+.filmdetail-letter {
+  margin-left: 20px;
+  flex: 3;
+}
+
+.filmdetail figure {
+  flex: 2;
+  padding: 0px;
+  margin: 0px;
+}
+
+.filmdetail img {
+  width: 100%;
+}
+
+@media only screen and (max-width: 600px) {
+  .filmdetail {
+    display: flex;
+    margin: 10%;
+    flex-direction: column;
+  }
+}

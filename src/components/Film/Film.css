@@ -1,0 +1,28 @@
+.film-item-container {
+  flex: 1;
+  padding: 20px;
+  text-align: center;
+}
+
+.film-item-container a {
+  text-decoration: none;
+  color: #333;
+}
+
+.Film {
+  flex: 1;
+  flex-basis: 33.333333%;
+  max-width: 33%;
+}
+
+.Film img {
+  width: 100%;
+}
+
+@media only screen and (max-width: 600px) {
+  .Film {
+    flex: 1;
+    flex-basis: 100%;
+    max-width: inherit;
+  }
+}
