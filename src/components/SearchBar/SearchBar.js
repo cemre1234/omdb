@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AppContext } from "../../util/AppContext";
 import "./SearchBar.css";
 
-function SearchBar({ setTerm , term}) {
+function SearchBar() {
+  const { term, setTerm } = useContext(AppContext);
 
   const handleTermChange = (e) => {
     setTerm(e.target.value);

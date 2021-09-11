@@ -1,17 +1,44 @@
-import React from "react";
+import React, { useContext, useEffect, useRef } from "react";
+import { AppContext } from "../../util/AppContext";
 import Film from "../Film/Film";
 import "./FilmList.css";
+import debounce from "lodash.debounce";
+import { Omdb } from "../../util/Omdb";
 
-function FilmList({ films }) {
-  const randomid = Math.random();
+const searchOmdb = async (term, page, cb) => {
+  const result = await Omdb.searchTerm(term, page);
+  cb(result);
+};
+
+const debouncedChangeHandler = debounce(
+  (term, page, cb) => searchOmdb(term, page, cb),
+  500
+);
+
+function FilmList() {
+  const { setPage, setFilms, films, term, page } = useContext(AppContext);
+
+  const oldPageNumber = useRef(1);
+
+  useEffect(() => {
+    setPage(1);
+    debouncedChangeHandler(term, page, (items) => setFilms(items));
+    // eslint-disable-next-line
+  }, [term]);
+
+  useEffect(() => {
+    if (oldPageNumber.current !== page) {
+      oldPageNumber.current = page;
+      searchOmdb(term, page, (items) => setFilms(items));
+    }
+    // eslint-disable-next-line
+  }, [page]);
+
   return (
     <div className="FilmList">
-      {films
-        ? films.map((film) => (
-            <Film
-              key={film.title !== undefined ? film.title+randomid : ""}
-              film={film}
-            />
+      {films && films.result
+        ? films.result.map((film) => (
+            <Film key={film.imdbID ? film.imdbID : film.title} film={film} />
           ))
         : ""}
     </div>

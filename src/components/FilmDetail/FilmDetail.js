@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { OmdbDetail } from "../../util/OmdbDetail";
+
 import "./FilmDetail.css";
 
 function FilmDetail() {
-  // We can use the `useParams` hook here to access
-  // the dynamic pieces of the URL.
   let { id } = useParams();
+
   const [filmDetail, setFilmDetail] = useState(undefined);
+  
   useEffect(() => {
     const title = id.toLowerCase();
     OmdbDetail.searchTerm(title).then((items) => {
