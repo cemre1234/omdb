@@ -19,9 +19,12 @@ function FilmList() {
   const { setPage, setFilms, films, term, page } = useContext(AppContext);
 
   const oldPageNumber = useRef(1);
+  const oldTerm = useRef(term);
 
   useEffect(() => {
-    setPage(1);
+    if(oldTerm.current !== term){
+      setPage(1);
+    }
     debouncedChangeHandler(term, page, (items) => setFilms(items));
     // eslint-disable-next-line
   }, [term]);
@@ -31,6 +34,7 @@ function FilmList() {
       oldPageNumber.current = page;
       searchOmdb(term, page, (items) => setFilms(items));
     }
+
     // eslint-disable-next-line
   }, [page]);
 
